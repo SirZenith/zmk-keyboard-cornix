@@ -70,7 +70,7 @@ config ZMK_RGB_UNDERGLOW
 	default n
 config ZMK_RGB_UNDERGLOW_EXT_POWER
 	default n
-    
+
 
 endif # BOARD_CORNIX_LEFT || BOARD_CORNIX_RIGHT
 # vim: set ft=kconfig:
