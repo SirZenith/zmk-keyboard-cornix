@@ -1,4 +1,20 @@
 if SHIELD_CORNIX_DONGLE_ADAPTER
+
+config ZMK_KEYBOARD_NAME
+    default "Cornix Dongle"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_BLE
+    default y
+
 endif # END ALL
 
 #vim: set ft=kconfig:

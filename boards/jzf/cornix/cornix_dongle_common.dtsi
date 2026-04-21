@@ -5,6 +5,7 @@
  */
 #include "cornix-layouts.dtsi"
 #include "cornix_sensors.dtsi"
+
 /{
     chosen {
         zmk,kscan = &mock_kscan;

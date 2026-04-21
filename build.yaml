@@ -13,25 +13,17 @@
 #
 ---
 include:
-  # dongle screen not yet supports zephyr4
-  # - board: seeeduino_xiao_ble
-  #   shield: cornix_dongle_adapter dongle_screen
-  #   snippet: studio-rpc-usb-uart
-  #   artifact-name: cornix_dongle_zds_see
-  # - board: nice_nano
-  #   shield: cornix_dongle_adapter dongle_screen
-  #   snippet: studio-rpc-usb-uart
-  #   artifact-name: cornix_dongle_zds_nano
   - artifact-name: cornix_dongle_nosd
-    board: nice_nano
+    board: nice_nano//zmk
     shield: cornix_dongle_adapter cornix_dongle_eyelash dongle_display
     snippet: studio-rpc-usb-uart nrf52840-nosd
     cmake-args: -DCONFIG_ZMK_STUDIO=y
-  - artifact-name: cornix_left_default_nosd
+
+  - artifact-name: cornix_left_central_nosd
     board: cornix_left
     # shield: cornix_indicator
 
-  - artifact-name: cornix_left_for_dongle_nosd
+  - artifact-name: cornix_left_peripheral_nosd
     board: cornix_ph_left
     # shield: cornix_indicator
 
@@ -39,12 +31,12 @@ include:
     board: cornix_right
     # shield: cornix_indicator
 
-  - artifact-name: cornix_reset
+  - artifact-name: reset_cornix
     board: cornix_right
     shield: settings_reset
     snippet: studio-rpc-usb-uart nrf52840-nosd
 
-  - artifact-name: reset_nicenano_nosd
-    board: nice_nano
+  - artifact-name: reset_dongle
+    board: nice_nano//zmk
     shield: settings_reset
     snippet: studio-rpc-usb-uart nrf52840-nosd

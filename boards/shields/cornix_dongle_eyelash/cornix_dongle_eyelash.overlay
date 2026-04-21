@@ -5,7 +5,7 @@
         zephyr,display = &oled;
     };
 };
-// vim: set ft=dts :
+
 &pinctrl {
     i2c0_default: i2c0_default {
         group1 {
@@ -25,11 +25,11 @@
 
 
 &i2c0 {
-	status = "okay";
-	compatible = "nordic,nrf-twi";
+    status = "okay";
+    compatible = "nordic,nrf-twi";
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
-	oled: sh1106@3c {
+    oled: sh1106@3c {
         compatible = "sinowealth,sh1106";
         reg = <0x3c>;
         height = <64>;
@@ -51,7 +51,7 @@
         // comment to rotate 180
         segment-remap;
         com-invdir;
-	};
+    };
 };
 
 //vim: set ft=dts:
