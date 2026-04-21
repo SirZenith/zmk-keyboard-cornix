@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2020 Pete Johanson
- *
- * SPDX-License-Identifier: MIT
- */
+* Copyright (c) 2020 Pete Johanson
+*
+* SPDX-License-Identifier: MIT
+*/
 
 // common code snippet for cornix left and right boards
 // dongle should not use this file
@@ -17,9 +17,9 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-		zmk,physical-layout = &layout_50;
+        zmk,physical-layout = &layout_50;
+        zmk,bttery = &vbatt;
     };
-
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
@@ -27,6 +27,10 @@
         wakeup-source;
     };
 
+    soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&kscan0>;
+    };
 };
 
 &spi3 {
@@ -55,21 +59,7 @@
         spi-zero-frame = <0x80>;
 
         // spi-one-frame = <ONE_FRAME>;
-		// spi-zero-frame = <ZERO_FRAME>;
+        // spi-zero-frame = <ZERO_FRAME>;
         color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
     };
-};
-
-
-
-/ {
-    soft_off_wakers {
-        compatible = "zmk,soft-off-wakeup-sources";
-        wakeup-sources = <&kscan0>;
-    };
-
-    chosen {
-        zmk,bttery = &vbatt;
-    };
-
 };

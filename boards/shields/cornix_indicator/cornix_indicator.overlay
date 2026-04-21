@@ -1,7 +1,6 @@
 // #include <zephyr/dt-bindings/led/led.h>
 
 / {
-
     EXT_POWER {
         status = "okay";
     };
