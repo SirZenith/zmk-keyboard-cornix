@@ -13,24 +13,6 @@
 #
 ---
 include:
-  - artifact-name: cornix_dongle_nosd
-    board: nice_nano//zmk
-    shield: cornix_dongle_adapter cornix_dongle_eyelash dongle_display
-    snippet: studio-rpc-usb-uart nrf52840-nosd
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-
-  - artifact-name: cornix_left_central_nosd
-    board: cornix_left
-    # shield: cornix_indicator
-
-  - artifact-name: cornix_left_peripheral_nosd
-    board: cornix_ph_left
-    # shield: cornix_indicator
-
-  - artifact-name: cornix_right_nosd
-    board: cornix_right
-    # shield: cornix_indicator
-
   - artifact-name: cornix_left_central
     board: e73
     shield: cornix_left_central
@@ -48,10 +30,6 @@ include:
     snippet: studio-rpc-usb-uart nrf52840-nosd
     cmake-args: -DCONFIG_ZMK_STUDIO=y
 
-  - artifact-name: reset_cornix
-    board: cornix_right
-    shield: settings_reset
-    snippet: nrf52840-nosd
   - artifact-name: reset_keyboard
     board: e73
     shield: settings_reset
