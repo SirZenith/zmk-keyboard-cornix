@@ -15,14 +15,14 @@
 include:
   - artifact-name: cornix_left_central
     board: e73
-    shield: cornix_left_central
+    shield: cornix_left_central cornix_led_widget
     cmake-args: -DCONFIG_ZMK_STUDIO=y
   - artifact-name: cornix_left_peripheral
     board: e73
-    shield: cornix_left_peripheral cornix_rgb_widget
+    shield: cornix_left_peripheral cornix_led_widget
   - artifact-name: cornix_right
     board: e73
-    shield: cornix_right
+    shield: cornix_right cornix_led_widget
 
   - artifact-name: cornix_dongle
     board: nice_nano//zmk

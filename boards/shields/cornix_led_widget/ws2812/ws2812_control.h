@@ -35,6 +35,16 @@ enum status_priority {
   PRIORITY_MANUAL_TRIGGER = 3,    // Normal
   PRIORITY_AMBIENT = 4            // Lowest - always shareable
 };
+enum color_index {
+  COLOR_INDEX_OFF = 0,
+  COLOR_INDEX_RED = 1,
+  COLOR_INDEX_GREEN = 2,
+  COLOR_INDEX_YELLOW = 3,
+  COLOR_INDEX_BLUE = 4,
+  COLOR_INDEX_MAGENTA = 5,
+  COLOR_INDEX_CYAN = 6,
+  COLOR_INDEX_WHITE = 7
+};
 
 // LED state tracking
 struct led_state {

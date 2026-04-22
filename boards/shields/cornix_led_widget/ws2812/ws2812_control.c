@@ -10,8 +10,8 @@
 
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
-static struct led_state led_states[CONFIG_RGBLED_WIDGET_LED_COUNT] = {0};
-static struct led_rgb led_colors[CONFIG_RGBLED_WIDGET_LED_COUNT] = {0};
+static struct led_state led_states[CONFIG_LED_WIDGET_LED_COUNT] = {0};
+static struct led_rgb led_colors[CONFIG_LED_WIDGET_LED_COUNT] = {0};
 
 static const struct device *ws2812_dev = DEVICE_DT_GET(DT_ALIAS(status_ws2812));
 
@@ -27,7 +27,7 @@ static void color_index_to_rgb(uint8_t color_idx, struct led_rgb *rgb) {
       {1, 1, 1}, // 7: white
   };
 
-  uint8_t brightness = CONFIG_RGBLED_WIDGET_BRIGHTNESS;
+  uint8_t brightness = CONFIG_LED_WIDGET_BRIGHTNESS;
   struct led_rgb tmp = {0};
 
   if (color_idx < ARRAY_SIZE(lut)) {
@@ -40,11 +40,11 @@ static void color_index_to_rgb(uint8_t color_idx, struct led_rgb *rgb) {
 
 static int ws2812_update_strip(void) {
   return led_strip_update_rgb(ws2812_dev, led_colors,
-                              CONFIG_RGBLED_WIDGET_LED_COUNT);
+                              CONFIG_LED_WIDGET_LED_COUNT);
 }
 
 static void ws2812_clear_strip(void) {
-  for (int i = 0; i < CONFIG_RGBLED_WIDGET_LED_COUNT; i++) {
+  for (int i = 0; i < CONFIG_LED_WIDGET_LED_COUNT; i++) {
     led_colors[i] = (struct led_rgb){0, 0, 0};
     led_states[i].current_color = 0;
   }
@@ -58,9 +58,9 @@ void ws2812_strip_init(void) {
   }
 
   // Initialize all LEDs to off
-  for (int i = 0; i < CONFIG_RGBLED_WIDGET_LED_COUNT; i++) {
+  for (int i = 0; i < CONFIG_LED_WIDGET_LED_COUNT; i++) {
     led_colors[i] = (struct led_rgb){0, 0, 0};
-    led_states[i].current_color = 0;
+    led_states[i].current_color = COLOR_INDEX_OFF;
     led_states[i].base_color = 0;
     led_states[i].status_type = 0;
     led_states[i].priority = PRIORITY_AMBIENT;
@@ -69,15 +69,14 @@ void ws2812_strip_init(void) {
     led_states[i].share_end_time = 0;
   }
 
-  led_strip_update_rgb(ws2812_dev, led_colors, CONFIG_RGBLED_WIDGET_LED_COUNT);
-  LOG_INF("WS2812 strip initialized with %d LEDs",
-          CONFIG_RGBLED_WIDGET_LED_COUNT);
+  led_strip_update_rgb(ws2812_dev, led_colors, CONFIG_LED_WIDGET_LED_COUNT);
+  LOG_INF("WS2812 strip initialized with %d LEDs", CONFIG_LED_WIDGET_LED_COUNT);
 }
 
 int ws2812_set_led(uint8_t led_index, uint8_t color_idx) {
-  if (led_index >= CONFIG_RGBLED_WIDGET_LED_COUNT) {
+  if (led_index >= CONFIG_LED_WIDGET_LED_COUNT) {
     LOG_ERR("LED index %d out of range (max %d)", led_index,
-            CONFIG_RGBLED_WIDGET_LED_COUNT - 1);
+            CONFIG_LED_WIDGET_LED_COUNT - 1);
     return -EINVAL;
   }
 
@@ -85,16 +84,16 @@ int ws2812_set_led(uint8_t led_index, uint8_t color_idx) {
   led_states[led_index].current_color = color_idx;
 
   return led_strip_update_rgb(ws2812_dev, led_colors,
-                              CONFIG_RGBLED_WIDGET_LED_COUNT);
+                              CONFIG_LED_WIDGET_LED_COUNT);
 }
 
 int ws2812_clear_led(uint8_t led_index) {
-  if (led_index >= CONFIG_RGBLED_WIDGET_LED_COUNT) {
+  if (led_index >= CONFIG_LED_WIDGET_LED_COUNT) {
     return -EINVAL;
   }
 
   led_colors[led_index] = (struct led_rgb){0, 0, 0};
-  led_states[led_index].current_color = 0;
+  led_states[led_index].current_color = COLOR_INDEX_OFF;
   led_states[led_index].status_type = STATUS_CUSTOM;
   led_states[led_index].priority = PRIORITY_AMBIENT;
   led_states[led_index].is_shared = false;
@@ -102,13 +101,13 @@ int ws2812_clear_led(uint8_t led_index) {
   led_states[led_index].share_end_time = 0;
 
   return led_strip_update_rgb(ws2812_dev, led_colors,
-                              CONFIG_RGBLED_WIDGET_LED_COUNT);
+                              CONFIG_LED_WIDGET_LED_COUNT);
 }
 
 int ws2812_clear_all(void) {
   ws2812_clear_strip();
   // Reset all LED states
-  for (int i = 0; i < CONFIG_RGBLED_WIDGET_LED_COUNT; i++) {
+  for (int i = 0; i < CONFIG_LED_WIDGET_LED_COUNT; i++) {
     led_states[i].status_type = STATUS_CUSTOM;
     led_states[i].priority = PRIORITY_AMBIENT;
     led_states[i].is_shared = false;
