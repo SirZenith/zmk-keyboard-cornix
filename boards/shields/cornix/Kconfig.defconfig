@@ -1,0 +1,69 @@
+if SHIELD_CORNIX_LEFT_CENTRAL
+
+config ZMK_KEYBOARD_NAME
+    default "Cornix"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+    default y
+
+if USB
+
+config USB_NRFX
+    default y
+
+config USB_DEVICE_STACK
+    default y
+
+endif # USB
+
+endif # SHIELD_CORNIX_LEFT_CENTRAL
+
+## Peripheral device (right side)
+if SHIELD_CORNIX_RIGHT || SHIELD_CORNIX_LEFT_PERIPHERAL
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default n
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default n
+
+# Add keyboard debouncing
+config ZMK_KSCAN_DEBOUNCE_PRESS_MS
+    default 3
+config ZMK_KSCAN_DEBOUNCE_RELEASE_MS
+    default 3
+
+endif # SHIELD_CORNIX_RIGHT
+
+# Common options for both sides
+if SHIELD_CORNIX_LEFT_CENTRAL  || SHIELD_CORNIX_LEFT_PERIPHERAL || SHIELD_CORNIX_RIGHT
+
+#config BT_CTLR
+#    default BT
+
+config ENABLE_CHARGER
+    default y
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_BLE
+    default y
+
+# disable rgb by default
+config ZMK_RGB_UNDERGLOW
+    default n
+config ZMK_RGB_UNDERGLOW_EXT_POWER
+    default n
+
+
+endif

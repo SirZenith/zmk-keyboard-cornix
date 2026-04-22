@@ -1,6 +1,6 @@
 #include <dt-bindings/led/led.h>
-#include "cornix-layouts.dtsi"
-#include "cornix_sensors.dtsi"
+#include "../common/cornix-layout.dtsi"
+#include "../common/cornix-sensor.dtsi"
 
 / {
     chosen {

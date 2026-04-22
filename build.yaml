@@ -44,3 +44,6 @@ include:
   - artifact-name: cornix_left_central
     board: e73
     shield: cornix_left_central
+  - artifact-name: cornix_right
+    board: e73
+    shield: cornix_right
