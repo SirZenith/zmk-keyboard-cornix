@@ -45,7 +45,7 @@
                 &kp LEFT_ALT  &kp Z  &kp X  &kp C  &kp V           &kp B      &kp PRINTSCREEN   &kp C_MUTE &kp N          &kp M       &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_GUI
                 &none         &none  &none  &mo 1  &kp LEFT_SHIFT  &kp SPACE                               &kp BACKSPACE  &kp RSHIFT  &mo 2      &none    &none    &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         l_primer {
@@ -56,7 +56,7 @@
                 &mo 3      &kp F1  &kp F2  &kp F3  &kp F4         &kp F5     &trans  &trans  &kp SQT        &kp LS(DQT)   &none          &none         &none         &kp F11
                 &none      &none   &none   &none   &kp LALT       &kp SPACE                  &kp SPACE      &kp RALT      &kp LS(TILDE)  &none         &none         &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         r_primer {
@@ -67,7 +67,7 @@
                 &kp F12    &none         &kp LBKT    &kp RBKT       &kp LS(LBRC)  &kp LS(RBRC)   &trans  &trans  &kp F6         &kp F7    &kp F8        &kp F9  &kp F10  &mo 3
                 &none      &none         &none       &trans         &trans        &none                          &none          &none     &none         &none   &none    &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         media {
@@ -78,7 +78,7 @@
                 &none                 &kp C_MUTE         &kp HOME        &kp C_PLAY_PAUSE  &kp END        &kp INSERT         &trans  &trans &prev_desktop   &mkp LCLK       &mkp RCLK     &next_desktop    &none         &none
                 &bt BT_SEL 0          &bt BT_SEL 1       &bt BT_SEL 2    &none             &kp RIGHT_GUI  &kp PRINTSCREEN                   &none           &kp RIGHT_GUI   &none         &none            &bt BT_CLR    &none
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         layer_4 {
