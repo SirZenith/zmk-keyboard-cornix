@@ -1,0 +1,9 @@
+file_format: "1"
+id: e73
+name: ebyte-e73
+type: board
+url:
+features:
+  - keys
+  - encoder
+  # - led

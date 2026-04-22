@@ -1,0 +1,8 @@
+boards:
+  - name: e73
+    vendor: ebyte
+    revision:
+      format: major.minor.patch
+      default: 1.0.0
+      revisions:
+        - name: 1.0.0
