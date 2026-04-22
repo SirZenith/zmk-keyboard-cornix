@@ -50,9 +50,6 @@ if SHIELD_CORNIX_LEFT_CENTRAL  || SHIELD_CORNIX_LEFT_PERIPHERAL || SHIELD_CORNIX
 #config BT_CTLR
 #    default BT
 
-config ENABLE_CHARGER
-    default y
-
 config ZMK_SPLIT
     default y
 

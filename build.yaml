@@ -34,12 +34,19 @@ include:
   - artifact-name: cornix_left_central
     board: e73
     shield: cornix_left_central
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
   - artifact-name: cornix_left_peripheral
     board: e73
     shield: cornix_left_peripheral
   - artifact-name: cornix_right
     board: e73
     shield: cornix_right
+
+  - artifact-name: cornix_dongle
+    board: nice_nano//zmk
+    shield: cornix_dongle dongle_display
+    snippet: studio-rpc-usb-uart nrf52840-nosd
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
 
   - artifact-name: reset_cornix
     board: cornix_right
