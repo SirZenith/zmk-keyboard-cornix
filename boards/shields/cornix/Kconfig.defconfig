@@ -62,5 +62,9 @@ config ZMK_RGB_UNDERGLOW
 config ZMK_RGB_UNDERGLOW_EXT_POWER
     default n
 
+config ZMK_SLEEP
+    default y
+config ZMK_IDLE_SLEEP_TIMEOUT
+    default 3600000
 
 endif

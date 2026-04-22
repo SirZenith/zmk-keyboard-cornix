@@ -19,7 +19,7 @@ include:
     cmake-args: -DCONFIG_ZMK_STUDIO=y
   - artifact-name: cornix_left_peripheral
     board: e73
-    shield: cornix_left_peripheral
+    shield: cornix_left_peripheral cornix_rgb_widget
   - artifact-name: cornix_right
     board: e73
     shield: cornix_right

@@ -1,0 +1,35 @@
+config SHIELD_CORNIX_RGB_WIDGET
+    def_bool $(shields_list_contains,cornix_rgb_widget)
+
+# Color definitions to use with color settings
+COLOR_BLACK   := 0
+COLOR_RED     := 1
+COLOR_GREEN   := 2
+COLOR_YELLOW  := 3
+COLOR_BLUE    := 4
+COLOR_MAGENTA := 5
+COLOR_CYAN    := 6
+COLOR_WHITE   := 7
+
+config RGBLED_WIDGET
+    bool "Enable RGB LED widget for showing battery and output status"
+
+if RGBLED_WIDGET
+
+config RGBLED_WIDGET_LED_COUNT
+    int "Number of LEDs in the strip"
+    range 1 4
+    default 2
+    help
+      Number of addressable LEDs in the WS2812 strip. Maximum 4 LEDs
+      are supported for optimal performance and memory usage.
+
+config RGBLED_WIDGET_BRIGHTNESS
+    int "Default LED brightness (0-255)"
+    range 0 255
+    default 128
+    help
+      Default brightness level for WS2812 LEDs. Lower values reduce
+      power consumption and eye strain.
+
+endif # RGBLED_WIDGET
