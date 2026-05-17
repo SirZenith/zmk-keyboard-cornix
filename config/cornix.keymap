@@ -23,14 +23,20 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(LG(LEFT_ARROW))>;
-            display-name = "PREV_DESKTOP";
+            display-name = "Prev Desktop";
         };
-
         next_desktop: next_desktop {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LC(LG(RIGHT_ARROW))>;
-            display-name = "NEXT_DESKTOP";
+            display-name = "Next Desktop";
+        };
+
+        undo: undo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(Z)>;
+            display-name = "Undo";
         };
     };
 
@@ -40,10 +46,10 @@
         default_layer {
             display-name = "DEF";
             bindings = <
-                &kp TAB       &kp Q  &kp W  &kp E  &kp R           &kp T                                   &kp Y          &kp U       &kp I      &kp O    &kp P     &kp ESCAPE
-                &kp LCTRL     &kp A  &kp S  &kp D  &kp F           &kp G                                   &kp H          &kp J       &kp K      &kp L    &kp SEMI  &kp RETURN
-                &kp LEFT_ALT  &kp Z  &kp X  &kp C  &kp V           &kp B      &kp PRINTSCREEN   &kp C_MUTE &kp N          &kp M       &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_GUI
-                &none         &none  &none  &mo 1  &kp LEFT_SHIFT  &kp SPACE                               &kp BACKSPACE  &kp RSHIFT  &mo 2      &none    &none    &none
+                &kp TAB       &kp Q      &kp W  &kp E  &kp R           &kp T                                   &kp Y          &kp U       &kp I      &kp O    &kp P     &kp ESCAPE
+                &kp LCTRL     &kp A      &kp S  &kp D  &kp F           &kp G                                   &kp H          &kp J       &kp K      &kp L    &kp SEMI  &kp RETURN
+                &kp LEFT_ALT  &kp Z      &kp X  &kp C  &kp V           &kp B      &kp PRINTSCREEN   &kp C_MUTE &kp N          &kp M       &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_GUI
+                &mkp RCLK     &mkp MCLK  &undo  &mo 1  &kp LEFT_SHIFT  &kp SPACE                               &kp BACKSPACE  &kp RSHIFT  &mo 2      &none    &none    &none
             >;
             sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
